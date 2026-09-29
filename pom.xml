@@ -35,7 +35,7 @@
         <version.commons.pool>1.6</version.commons.pool>
         <version.com.google.code.gson>2.13.1</version.com.google.code.gson>
         <version.jodatime>2.14.0</version.jodatime>
-        <version.jta>1.1</version.jta>
+        <version.jta>2.0.1</version.jta>
         <version.junit>5.7.0</version.junit>
         <version.maven.antlr-plugin>2.2</version.maven.antlr-plugin>
         <version.maven.build-helper-plugin>1.7</version.maven.build-helper-plugin>
@@ -227,8 +227,8 @@
                 <version>${version.commons.codec}</version>
             </dependency>
             <dependency>
-                <groupId>javax.transaction</groupId>
-                <artifactId>jta</artifactId>
+                <groupId>jakarta.transaction</groupId>
+                <artifactId>jakarta.transaction-api</artifactId>
                 <version>${version.jta}</version>
             </dependency>
             <dependency>
