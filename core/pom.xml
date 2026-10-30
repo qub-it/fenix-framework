@@ -207,51 +207,8 @@
                             <executable>${project.build.testSourceDirectory}/../resources/gen_dml.sh</executable>
                         </configuration>
                     </execution>
-                </executions>
-            </plugin>
 
-            <!-- Process dml file class immediately before compiling -->
-            <plugin>
-                <groupId>pt.ist</groupId>
-                <artifactId>dml-maven-plugin</artifactId>
-                <version>${project.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate-domain</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.build.directory}/generated-sources/dml-maven-plugin</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-
-            <!-- Generate the Annotation Instance classes and Process
-                 Annotations after compiling tests -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>${version.maven.exec-plugin}</version>
-                <executions>
-                    <!-- MyAnnotationWithProvidedFactory. In this
+                       <!-- MyAnnotationWithProvidedFactory. In this
                          case, the annotation itself defines the
                          factory to use. -->
                     <execution>
@@ -361,7 +318,39 @@
                             </arguments>
                         </configuration>
                     </execution>
+                </executions>
+            </plugin>
 
+            <!-- Process dml file class immediately before compiling -->
+            <plugin>
+                <groupId>pt.ist</groupId>
+                <artifactId>dml-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-domain</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/dml-maven-plugin</source>
+                            </sources>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 
@@ -386,10 +375,6 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
         </dependency>
         <dependency>
             <groupId>jakarta.transaction</groupId>
